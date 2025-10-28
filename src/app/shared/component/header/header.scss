@@ -1,0 +1,131 @@
+.header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .logo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0;
+    font-family: var(--font-family-heading);
+  }
+  
+  .subtitle {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+  
+  .navigation {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+  
+    &:hover {
+      background: var(--color-bg-hover);
+      color: var(--color-text);
+    }
+  
+    &.active {
+      color: var(--color-primary);
+      background: var(--color-primary-light);
+  
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 2px;
+        background: var(--color-primary);
+        border-radius: 2px;
+      }
+    }
+  }
+  
+  .theme-toggle {
+    background: var(--color-bg-hover);
+    border: none;
+    border-radius: var(--border-radius-full);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  
+    &:hover {
+      background: var(--color-bg-active);
+      transform: scale(1.05);
+    }
+  
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  
+  .theme-icon {
+    font-size: 1.5rem;
+  }
+  
+  .icon {
+    font-size: 1.25rem;
+  }
+  
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 1rem;
+    }
+  
+    .nav-link .text {
+      display: none;
+    }
+  
+    .logo {
+      font-size: 1.25rem;
+    }
+  
+    .subtitle {
+      display: none;
+    }
+  }
+  
+  
