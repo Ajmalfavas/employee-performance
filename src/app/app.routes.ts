@@ -9,17 +9,13 @@ export const routes: Routes = [
     {
         path: 'dashboard',
         loadComponent: () => import('./features/dashboard/dashboard').then((m) => m.Dashboard)
+    },
+    {
+        path: 'reports',
+        loadChildren: () => import('./features/reports/reports.route').then((m) => m.routes)
+    },
+    {
+        path: 'settings',
+        loadComponent: () => import('./features/settings/settings').then((m) => m.Settings)
     }
-    // {
-    //     path: 'dashboard',
-    //     loadComponent: () => import('./features/dashboard/dashboard.component').then((m) => m.DashboardComponent)
-    // },
-    // {
-    //     path: 'reports',
-    //     loadComponent: () => import('./features/reports/reports.component').then((m) => m.ReportsComponent)
-    // },
-    // {
-    //     path: 'settings',
-    //     loadComponent: () => import('./features/settings/settings.component').then((m) => m.SettingsComponent)
-    // }
 ];

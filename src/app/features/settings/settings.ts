@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './settings.scss',
 })
 export class Settings {
+  exportData = signal<any[]>([]);
 
+  constructor(
+    public themeService: ThemeService,
+  ) {}
+
+  ngOnInit(): void {
+  }
+
+  onThemeChange(theme: 'light' | 'dark'): void {
+    this.themeService.setTheme(theme);
+  }
 }

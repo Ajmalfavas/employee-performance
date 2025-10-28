@@ -1,1 +1,36 @@
-<p>settings works!</p>
+<div class="settings-container">
+    <h1 class="page-title">Settings</h1>
+    <p class="page-subtitle">Manage application preferences and data</p>
+
+    <div class="settings-content">
+        <!-- Theme Settings -->
+        <div class="settings-section">
+            <h2 class="section-title">Appearance</h2>
+            <div class="settings-item">
+                <label class="settings-label">Theme</label>
+                <div class="theme-options">
+                    <button class="theme-option" [class.active]="!themeService.isDarkMode()"
+                        (click)="onThemeChange('light')">
+                        <span class="theme-icon">☀️</span>
+                        <span>Light</span>
+                    </button>
+                    <button class="theme-option" [class.active]="themeService.isDarkMode()"
+                        (click)="onThemeChange('dark')">
+                        <span class="theme-icon">🌙</span>
+                        <span>Dark</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- About -->
+        <div class="settings-section">
+            <h2 class="section-title">About</h2>
+            <div class="about-content">
+                <p><strong>Toppers Edge</strong></p>
+                <p>Version 1.0.0</p>
+                <p>Employee Performance Metrics Management System</p>
+            </div>
+        </div>
+    </div>
+</div>
