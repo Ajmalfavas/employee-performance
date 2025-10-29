@@ -1,0 +1,104 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="employee-form">
+  <div class="form-header">
+    <h2>{{ employee ? 'Edit Employee' : 'Add New Employee' }}</h2>
+  </div>
+
+  <div class="form-body">
+    <div class="form-group">
+      <label for="name">Name *</label>
+      <input 
+        type="text" 
+        id="name" 
+        formControlName="name"
+        [class.error]="hasError('name')"
+        placeholder="Enter employee name">
+      <span class="error-message" *ngIf="hasError('name')">
+        {{ getErrorMessage('name') }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="department">Department *</label>
+      <select 
+        id="department" 
+        formControlName="department"
+        [class.error]="hasError('department')">
+        <option value="">Select Department</option>
+        <option value="Engineering">Engineering</option>
+        <option value="Product">Product</option>
+        <option value="Design">Design</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Sales">Sales</option>
+        <option value="HR">HR</option>
+      </select>
+      <span class="error-message" *ngIf="hasError('department')">
+        {{ getErrorMessage('department') }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="position">Position *</label>
+      <input 
+        type="text" 
+        id="position" 
+        formControlName="position"
+        [class.error]="hasError('position')"
+        placeholder="Enter position">
+      <span class="error-message" *ngIf="hasError('position')">
+        {{ getErrorMessage('position') }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email *</label>
+      <input 
+        type="email" 
+        id="email" 
+        formControlName="email"
+        [class.error]="hasError('email')"
+        placeholder="Enter email address">
+      <span class="error-message" *ngIf="hasError('email')">
+        {{ getErrorMessage('email') }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone *</label>
+      <input 
+        type="tel" 
+        id="phone" 
+        formControlName="phone"
+        [class.error]="hasError('phone')"
+        placeholder="+1-234-567-8900">
+      <span class="error-message" *ngIf="hasError('phone')">
+        {{ getErrorMessage('phone') }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="joinDate">Join Date *</label>
+      <input 
+        type="date" 
+        id="joinDate" 
+        formControlName="joinDate"
+        [class.error]="hasError('joinDate')">
+      <span class="error-message" *ngIf="hasError('joinDate')">
+        {{ getErrorMessage('joinDate') }}
+      </span>
+    </div>
+  </div>
+
+  <div class="form-footer">
+    <button type="button" class="btn btn-secondary" (click)="onCancel()" [disabled]="isSubmitting">
+      Cancel
+    </button>
+    <button 
+      type="submit" 
+      class="btn btn-primary" 
+      [disabled]="employeeForm.invalid || isSubmitting">
+      <span *ngIf="isSubmitting">Saving...</span>
+      <span *ngIf="!isSubmitting">{{ employee ? 'Update' : 'Create' }}</span>
+    </button>
+  </div>
+</form>
+

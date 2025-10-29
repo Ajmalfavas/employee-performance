@@ -1,0 +1,39 @@
+<div class="employee-card" *ngIf="employee">
+  <div class="card-header">
+    <div class="employee-info">
+      <h3 class="employee-name">{{ employee.name }}</h3>
+      <span class="employee-position">{{ employee.position }}</span>
+    </div>
+    <div class="performance-badge" [ngClass]="'badge-' + getPerformanceColor(getOverallScore())">
+      {{ getOverallScore() }}%
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="detail-row">
+      <span class="label">Department:</span>
+      <span class="value">{{ employee.department }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">Email:</span>
+      <span class="value">{{ employee.email }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="label">Join Date:</span>
+      <span class="value">{{ employee.joinDate }}</span>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button class="btn btn-primary" (click)="onViewDetails()">
+      View Details
+    </button>
+    <button class="btn btn-secondary" (click)="onEdit()">
+      Edit
+    </button>
+    <button class="btn btn-danger" (click)="onDelete()">
+      Delete
+    </button>
+  </div>
+</div>
+

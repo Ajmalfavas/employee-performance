@@ -1,0 +1,105 @@
+.employee-card {
+  background: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.employee-info {
+  flex: 1;
+}
+
+.employee-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 0.25rem 0;
+}
+
+.employee-position {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.performance-badge {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-full);
+  font-weight: 600;
+  font-size: 0.875rem;
+  white-space: nowrap;
+
+  &.badge-success {
+    background: var(--color-success-light);
+    color: var(--color-success);
+  }
+
+  &.badge-warning {
+    background: var(--color-warning-light);
+    color: var(--color-warning);
+  }
+
+  &.badge-danger {
+    background: var(--color-danger-light);
+    color: var(--color-danger);
+  }
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+
+  .label {
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+  }
+
+  .value {
+    color: var(--color-text);
+    font-size: 0.875rem;
+    text-align: right;
+  }
+}
+
+.card-footer {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .card-footer {
+    flex-direction: column;
+  }
+
+  .card-footer .btn {
+    width: 100%;
+  }
+}
+

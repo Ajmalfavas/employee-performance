@@ -1,1 +1,55 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <div>
+            <h1 class="page-title">Employee Dashboard</h1>
+            <p class="page-subtitle">View and manage employee performance metrics</p>
+        </div>
+        <button class="btn btn-primary" (click)="onAddNew()">
+            <span>➕</span>
+            <span>Add New Employee</span>
+        </button>
+    </div>
+
+    <div class="error-message" *ngIf="error()" role="alert">
+        {{ error() }}
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-container" *ngIf="isLoading()">
+        <div class="loading-spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Employee List -->
+    <ng-container *ngIf="employees$ | async as employees">
+        <div class="dashboard-content" *ngIf="!showForm() && !isLoading()">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3 class="stat-value">{{ employees.length }}</h3>
+                    <p class="stat-label">Total Employees</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-value">{{ getAverageScore(employees) }}%</h3>
+                    <p class="stat-label">Average Performance</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-value">{{ getTopPerformers(employees) }}</h3>
+                    <p class="stat-label">Top Performers</p>
+                </div>
+            </div>
+
+            <div class="employees-grid">
+                <app-employee-card *ngFor="let employee of employees" [employee]="employee"
+                    (viewDetails)="onViewDetails($event)" (editEmployee)="onEditEmployee($event)"
+                    (deleteEmployee)="onDeleteEmployee($event)">
+                </app-employee-card>
+            </div>
+        </div>
+    </ng-container>
+
+    <!-- Employee Form -->
+    <div class="form-container" *ngIf="showForm()">
+        <app-employee-form [employee]="selectedEmployee" (submitForm)="onSubmitForm($event)" (cancel)="closeForm()">
+        </app-employee-form>
+    </div>
+</div>
