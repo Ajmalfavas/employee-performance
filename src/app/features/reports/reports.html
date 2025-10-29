@@ -1,0 +1,39 @@
+<div class="reports-container">
+  <div class="reports-header">
+    <h1 class="page-title">Performance Reports</h1>
+    <p class="page-subtitle">Analytics and insights on employee performance</p>
+  </div>
+
+  <div class="reports-content" *ngIf="employees$ | async as employees">
+    <!-- Overall Performance Chart -->
+    <div class="chart-section">
+      <app-chart
+        [categories]="getOverallCategories(employees)"
+        [chartType]="chartType()"
+        title="Overall Performance Distribution">
+      </app-chart>
+    </div>
+
+    <div class="charts-grid">
+      <!-- Department Distribution -->
+      <div class="chart-section">
+        <app-chart
+          [categories]="getDepartmentCategories(employees)"
+          chartType="pie"
+          title="Department Distribution">
+        </app-chart>
+      </div>
+
+      <!-- Performance Range Distribution -->
+      <div class="chart-section">
+        <app-chart
+          [categories]="getPerformanceRangeCategories(employees)"
+          chartType="bar"
+          title="Performance Score Ranges">
+        </app-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+

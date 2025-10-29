@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-// import { ThemeService } from '../../../core/services/theme.service';
+import { ThemeService } from '../../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +12,12 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   constructor(
-    // public themeService: ThemeService
+    public themeService: ThemeService
     ) {}
 
 
   toggleTheme(): void {
-    // this.themeService.toggleTheme();
+    this.themeService.toggleTheme();
   }
 }
 
