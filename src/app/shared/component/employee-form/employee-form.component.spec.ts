@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { EmployeeFormComponent } from './employee-form.component';
-import { Employee } from '../../../core/types/employee.types';
+import { Employee } from '../../../types/employee.types';
 
 describe('EmployeeFormComponent', () => {
   let component: EmployeeFormComponent;
